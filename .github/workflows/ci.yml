@@ -24,19 +24,14 @@ jobs:
 
       - name: Run Pytests
         run: pytest
-
   merge:
     needs: test
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == false
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Merge PR
         env:
-          GH_TOKEN: "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"
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}  # Assuming PAT_TOKEN is your secret name
         run: gh pr merge ${{ github.event.pull_request.number }} --merge
