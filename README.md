@@ -78,6 +78,7 @@ uvicorn main:app
 
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
+- Live: http://hng122.homemixsystems.co.ke/redoc
 
 ## API Endpoints
 
